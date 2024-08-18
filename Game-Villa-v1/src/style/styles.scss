@@ -5,6 +5,65 @@
 }
 
 body {
-    background-color: 'black';
     max-height: 100vh;
+    font-weight: 800;
+    font-family: 'Roboto', 'sans-serif';
+}
+
+input[type="search"] {
+    color: #ffffff;
+    font-size: 16px;
+}
+
+input[type="search"]:placeholder-shown {
+    color: #ffffff;
+}
+
+input[type="search"]:active {
+    background-color: #8e8e8e;;
+}
+
+input[type="search"]:focus {
+    outline: #00bbcb;
+}
+
+li {
+
+    &:hover {
+        cursor: pointer;
+        color: #ffff6a;
+        transition: 0.3s ease-in;
+    }
+}
+
+.navContainer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.titleSearchContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.navList {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    list-style: none;
+    font-weight: 400;
+    font-size: 17px;
+    gap: 30px;
+}
+
+.homeTitle {
+    font-size: 25px;
+    font-family: 'Roboto', 'sans-serif';
+
+    &:hover {
+        cursor: pointer;
+    }
 }
