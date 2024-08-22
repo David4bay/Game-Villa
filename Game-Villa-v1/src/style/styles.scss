@@ -1,3 +1,60 @@
+:root {
+    --white: #ffffff;
+    --outline-focus: #00bbcb;
+    --nav-item-hovered: #ffff6a;
+    --text-shadow-gold: gold;
+}
+
+$retro-handheld-mobile: '../asset/resource/Retro\ Handheld\ Gaming\ Device\ \(3\).jpg';
+$retro-handheld-desktop: '../asset/resource/Retro\ Handheld\ Gaming\ Device\ \(2\).jpg';
+$gaming-moment-mobile: '../asset/resource/Gaming Moment (3).jpg';
+
+/*
+#568cad #f00829 #2d5a66 #6f92af #03738c #62e5e3
+#5e98b2 #00c2ea #5e304c #adccd6 #02548b #5dd9e6
+#303770 #f70933 #552e59 #054b95 #ed8074
+#6869a0 #f8432d #f8432d #075997 #fb4532
+#618da5 #f30b0f #5d3a58 #d198a6 #8f0610 #fb635e
+#566c97 #fa7029 #532d2a #b7a4c3 #b7a4c3 #fbcb60
+#57719a #b75731 #52482f #b3cbd7 #52301a #f2cb92
+#9c9663 #f5cc2a #513546 #d0ad9c #744909 #ecd25e
+#6493a8 #ce6d39 #4d342a #ccb793 #6d2a1a #e5a35e
+#9aa065 #ea9e3b #2d5358 #aaceac #284a54 #f2a847
+#a57058 #a57058 #4d2f27 #afd7a8 #6f1910 #f3efa8
+#b08772 #f8a62c #322420 #b8989e #532119 #fbca6f
+#af8c6c #a9794f #714f33 #d3c7b6 #4e2d13 #fbd7a5
+#a0725e #f6c234 #50342a #78a0c3 #631b0d #fbc974
+#4d6f90 #8b293d #2d354f #9cc5d3 #4e040d #d7f1f9
+#ae7151 #c49839 #334852 #cfd3af #73491a #d7aa99
+#b37552 #b37552 #4a3128 #68471f #e1ae90
+#568baa #d86022 #314952 #c08e6d #672d20 #9ccbe2
+#9e656d #03d0fd #574c31 #d7a9cb #622316 #f27468
+#9e6b5b #f89152 #604935 #afc9d4 #6d3416 #f89152
+#6388ad #6388ad #334752 #d5add8 #08346b #d9a3a2
+#ae8e62 #eab55f #534634 #d2ccb0 #eab55f
+#5c7085 #3c5e88 #3a5164 #9cb1c4 #1d2f46 #bcd1e2
+#6c55ae #6c55ae #493055 #abb8cd #352266 #958fd8
+#81817e #444442 #c0bfbc #fbfbf5
+#b18667 #f45128 #544a32 #d6ada3 #6d3419 #f6b48a
+#5e4e62 #225de3 #2f2337 #043a88 #9adefa
+#b28f82 #f60317 #30314e #b28f82 #870109 #fb5a49
+#5799a6 #dfb631 #5e432d #9cbdc2 #702e1b #d3c297
+#ac8c68 #bf7245 #534e33 #d1c7ac #6c381c #ead9b4
+#9f916a #c77744 #5e462c #dddbc9 #6e170d #ead3a1
+#807f7f #424141 #bbbbbb
+#5ea094 #f0941f #2b514e #a2c8b0 #045557 #f0ca57
+#5dac5f #34b7da #514b2e #b4c8b9 #903711 #e2b994
+#ab6752 #d60b02 #604330 #ba856a #870203 #f4c59e
+#9c9a60 #c65e2c #7c6645 #ccc48d #880803 #e1d49d
+#a05061 #fc711d #4f2b4a #bf6e8f #790524 #f9c864
+#5d65a9 #03d2ee #31294f #a598c6 #0688b7 #eb8fcf
+#566398 #0d38c8 #2e324f #b2acd3 #05166c #9dc7f5
+#a85e56 #ad3236 #582d2a #d3c5ab #8e1b25 #d38d77
+#9a5a9d #02c8f8 #713269 #a6a3d6 #8f0454 #5fe7fa
+#5fe7fa #138dec #444976 #082c93 #938cfc
+#52afa3 #e94533 #50232b #c4d9d5 #08716a #f95637
+*/
+
 * {
     padding: 0;
     margin: 0;
@@ -8,62 +65,155 @@ body {
     max-height: 100vh;
     font-weight: 800;
     font-family: 'Roboto', 'sans-serif';
+    // overflow-x: hidden;
+    scroll-behavior: smooth;
+    
 }
 
-input[type="search"] {
-    color: #ffffff;
-    font-size: 16px;
-}
+@media(max-width: 800px) {
 
-input[type="search"]:placeholder-shown {
-    color: #ffffff;
-}
+    input[type="search"] {
+        color: var(--white);
+        font-size: 16px;
+    }
+    
+    input[type="search"]:placeholder-shown {
+        color: var(--white);
+    }
+    
+    input[type="search"]:active {
+        background-color: #8e8e8e;;
+    }
+    
+    input[type="search"]:focus {
+        outline: var(--outline-focus);
+    }
+    
+    li {
+    
+        &:hover {
+            cursor: pointer;
+            color: var(--nav-item-hovered);
+            transition: 0.3s ease-in;
+        }
+    }
+    
+    .navContainer {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
 
-input[type="search"]:active {
-    background-color: #8e8e8e;;
-}
+    .navContainer-bottom {
+        background-color: #1e1c22;
+        color: var(--white);
+    }
+    
+    // .titleSearchContainer {
+    //     display: flex;
+    //     flex-direction: row;
+    //     align-items: center;
+    //     gap: 15px;
+    // }
+    
+    .navList {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        list-style: none;
+        font-weight: 400;
+        font-size: 17px;
+        gap: 30px;
+    }
 
-input[type="search"]:focus {
-    outline: #00bbcb;
-}
+    .banner-title {
+        text-transform: uppercase;
+    }
+    
+    .homeTitle {
+        text-transform: uppercase;
+        font-size: 25px;
+        font-family: 'Roboto', 'sans-serif';
+        text-shadow: 5px 2px 10px var(--text-shadow-gold);
+        filter: drop-shadow(-5px 3px 1px gold);
+        backdrop-filter: blur(5px);
+    
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    
+    .home {
+        display: flex;
+        min-height: 100vh;
+        justify-content: center;
+        background-image: url($retro-handheld-mobile);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    
+    .title {
+        display: flex;
+        text-align: center;
+        padding-top: calc(45vh - 50%);
+        flex-direction: column;
+    }
+    
+    h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--white);
+    text-shadow: 5px 2px 10px var(--text-shadow-gold);
+    }
 
-li {
+    h2 {
+    font-size: 1.8rem;
+    font-weight: 900;
+    text-align: center;
 
-    &:hover {
-        cursor: pointer;
-        color: #ffff6a;
-        transition: 0.3s ease-in;
+    text-shadow: 5px 2px 30px var(--text-shadow-gold);
+    }
+
+    .subtitle-emphasis {
+        display: block;
+        font-family: 'Noto sans', 'sans-serif';
+        color: tomato;
+        text-shadow: 5px 20px 10px white;
+        text-transform: uppercase;
+    }
+
+    p {
+        color: var(--white);
+        font-size: 18px;
+    }
+
+    .menu {
+        display: flex;
+        min-height: 100vh;
+        justify-content: center;
+        background-image: url('../asset/resource/Gaming Moment (3).jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        position: relative;
+    }
+
+    .inner-menu {
+        position: absolute;
+        inset: 0;
+        height: 100%;
+        width: 100%;
+        background-color: #c4d9d5;
+        opacity: 50%;
+        // backdrop-filter: blur(5px);
     }
 }
 
-.navContainer {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: space-between;
-}
-
-.titleSearchContainer {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.navList {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    list-style: none;
-    font-weight: 400;
-    font-size: 17px;
-    gap: 30px;
-}
-
-.homeTitle {
-    font-size: 25px;
-    font-family: 'Roboto', 'sans-serif';
-
-    &:hover {
-        cursor: pointer;
+@media(max-width: 365px) {
+    
+    .snackBar {
+        display: flex;
+        flex-direction: column;
     }
 }

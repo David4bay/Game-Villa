@@ -1,6 +1,6 @@
 const path = require("path")
 const HtmlPlugin = require("html-webpack-plugin")
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+// const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     entry: {
@@ -27,8 +27,8 @@ module.exports = {
                 test: /\.(s(a|c)ss)$/
             },
             {
-                type: "aasset/resource",
-                test: /\.(jpg|jpeg|png|woff|woff2|eot|ttf|svg)/
+                type: "asset/resource",
+                test: /\.(jpg|jpeg|png|woff|woff2|eot|ttf|svg)$/
             }
         ]
     },

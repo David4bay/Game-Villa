@@ -8,9 +8,11 @@ export async function home(request: Request, response: Response) {
 
     if (games) {
 
-        return response.status(200).json({ games: games.results, next: games.hasOwnProperty('next') ? getCurrentPageAndPageSize(games.next) : null })
-
+        return response.status(200).json(
+            { 
+            games: games.results, 
+            next: games.hasOwnProperty('next') ? getCurrentPageAndPageSize(games.next) : null }
+            )
     }
-
     return response.status(404).json({ error: 'Unable to fetch games'})
 }
