@@ -25,6 +25,6 @@ mongoose
 		console.log(`Sorry, unable to connect to Mongo Atlas, ${e.message}`);
 	});
 
-app.get('/api/v1', homeRouter)
+app.use('/api/v1', homeRouter)
 
 export default app;

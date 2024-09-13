@@ -21,6 +21,6 @@ const homeRouter = Router()
 //     return response.status(404).json({ error: 'Unable to fetch games'})
 // }
 
-homeRouter.get('/signup', signUp)
+homeRouter.post('/signup', signUp)
 
 export default homeRouter
