@@ -19,5 +19,9 @@ export function verifySignup(user: any, response: Response): Response | SignUpIn
         response.status(400).json({ message: 'malformatted user info, email is invalid.'})
         return
     }
+    if (typeof user.age !== 'number' || isNaN(user.age)) {
+        response.status(400).json({ message: 'malformatted user info, age is invalid.'})
+        return
+    }
     return user as SignUpInfo
 }
