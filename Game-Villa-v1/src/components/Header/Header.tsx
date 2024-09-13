@@ -1,4 +1,5 @@
 import { Slide } from "@material-ui/core";
+import { Paper, Typography } from '@mui/material'
 import { useScrollTrigger } from "@material-ui/core";
 import {
 	AppBar,
@@ -29,44 +30,44 @@ function HideOnScroll(props: Props) {
 }
 
 function Header(props: Props) {
-	const navItems = ["All Games", "Signin", "Signup"];
+	const navItems = ["User Reviews", "All Games", "Signin/Signup"];
 
 	return (
 		<React.Fragment>
 			<CssBaseline />
 			<Toolbar>
 			<HideOnScroll {...props}>
-				<div>
+				<Box>
 					<AppBar>
 						<Toolbar className="navContainer">
 							<Box className="titleSearchContainer">
-								<strong className="homeTitle">gv </strong>
-								<span className="banner-title">engage. </span>
-								<span className="banner-title">review. </span>
-								<span className="banner-title">earn. </span>
+								<Paper className="homeTitle">gv </Paper>
+								<Paper className="banner-title">engage. </Paper>
+								<Paper className="banner-title">review. </Paper>
+								<Paper className="banner-title">earn. </Paper>
 							</Box>
-							<div className="snackBar">
-								<ul className="navList">
+							<Box className="snackBar">
+								<Box className="navList">
 									{navItems.map((page) => (
-										<li key={page}>{page}</li>
+										<Paper key={page}>{page}</Paper>
 									))}
-								</ul>
-							</div>
+								</Box>
+							</Box>
 						</Toolbar>
 					</AppBar>
-				</div>
+				</Box>
 			</HideOnScroll>
 			</Toolbar>
-<header className="home">
-	<div  className="title">
-		<h1>
+<Container className="home">
+	<Box  className="title">
+		<Typography variant="h1">
 			GameVilla
-		</h1>
-		<h2>
-			Play. Review. <span className="subtitle-emphasis">Earn!</span>
-		</h2>
-	</div>
-</header>
+		</Typography>
+		<Typography variant="h2">
+			Play. Review. <Paper className="subtitle-emphasis">Earn!</Paper>
+		</Typography>
+	</Box>
+</Container>
 		</React.Fragment>
 	);
 }

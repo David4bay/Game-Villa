@@ -7,13 +7,11 @@ module.exports = {
         main: path.resolve(__dirname, "src/index.tsx")
     },
     mode: "development",
-    devtool: "eval-source-map",
+    devtool: "inline-source-map",
     devServer: {
-        // contentBase: path.resolve(__dirname, "dist"),
         port: 5001,
         open: true,
         hot: true,
-        // watchFiles:[path.resolve(__dirname, 'src')],
     },
     module: {
         rules: [

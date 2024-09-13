@@ -9,7 +9,7 @@ function Test() {
 	return <p>Hello Test, hello, this is a webpack hot-loaded project.</p>;
 }
 
-const container = document.body.appendChild(document.createElement("div"));
+const container = document.body.appendChild(document.createElement("div")!);
 const root = createRoot(container);
 
 root.render(<App />);

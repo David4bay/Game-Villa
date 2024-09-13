@@ -8,28 +8,24 @@ import Home from "./Home/Home";
 const theme = createTheme({
 	palette: {
 		primary: {
-			main: "#1e1c22;",
+			main: "#1e1c22",
 		},
 		secondary: {
 			main: "#f4fff8",
 		},
 		background: {
-			default: "#fff",
+			default: "#ffffff",
 		},
 		text: {
 			primary: "#333",
 		},
 	},
+
 });
 
 function App() {
 	return (
 		<ThemeProvider theme={theme}>
-		{/* <Helmet>
-			<title>
-				Game Villa: Review your favorite games!
-			</title>
-		</Helmet> */}
 			<Header />
 			<Home />
 		</ThemeProvider>

@@ -1,18 +1,23 @@
 import type { Request, Response } from "express";
+import { Router } from "express";
 import { getCurrentPageAndPageSize } from "../utils/extractPageNumber";
 import { fetchAllGames } from '../utils/gamesService'
 
-export async function home(request: Request, response: Response) {
+const homeRouter = Router()
 
-    let games = await fetchAllGames()
+// export async function home(request: Request, response: Response) {
 
-    if (games) {
+//     let games = await fetchAllGames()
 
-        return response.status(200).json(
-            { 
-            games: games.results, 
-            next: games.hasOwnProperty('next') ? getCurrentPageAndPageSize(games.next) : null }
-            )
-    }
-    return response.status(404).json({ error: 'Unable to fetch games'})
-}
+//     if (games) {
+
+//         return response.status(200).json(
+//             { 
+//             games: games.results, 
+//             next: games.hasOwnProperty('next') ? getCurrentPageAndPageSize(games.next) : null }
+//             )
+//     }
+//     return response.status(404).json({ error: 'Unable to fetch games'})
+// }
+
+homeRouter.get('/signup')
