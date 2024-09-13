@@ -1,7 +1,11 @@
 import type { Request, Response } from 'express'
 import type { SignUpInfo } from '../types/signup'
+import { verifySignup } from '../utils/verifySignup'
 
 function signUp(request: Request, response: Response) {
 
-    const credentials: SignUpInfo = request.body
+    const { username, password, email, age } = verifySignup(request.body, response) as SignUpInfo
+    
 }
+
+export default signUp

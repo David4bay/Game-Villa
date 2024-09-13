@@ -3,7 +3,7 @@ import cors from "cors";
 import express from "express";
 import helmet from "helmet";
 import mongoose from "mongoose";
-import { home } from "./handlers/home";
+import homeRouter from "./handlers/home";
 
 const app = express();
 app.use(helmet());
@@ -25,6 +25,6 @@ mongoose
 		console.log(`Sorry, unable to connect to Mongo Atlas, ${e.message}`);
 	});
 
-app.get('/api/v1', home)
+app.get('/api/v1', homeRouter)
 
 export default app;

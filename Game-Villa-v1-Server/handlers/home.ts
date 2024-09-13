@@ -2,6 +2,7 @@ import type { Request, Response } from "express";
 import { Router } from "express";
 import { getCurrentPageAndPageSize } from "../utils/extractPageNumber";
 import { fetchAllGames } from '../utils/gamesService'
+import signUp from '../controllers/signup'
 
 const homeRouter = Router()
 
@@ -20,4 +21,6 @@ const homeRouter = Router()
 //     return response.status(404).json({ error: 'Unable to fetch games'})
 // }
 
-homeRouter.get('/signup')
+homeRouter.get('/signup', signUp)
+
+export default homeRouter
