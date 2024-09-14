@@ -5,8 +5,8 @@
 	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"dev": "ts-node-dev app.ts",
-		"start": "ts-node app.ts"
+		"dev": "cross-env NODE_ENV=development ts-node-dev app.ts",
+		"start": "cross-env NODE_ENV=production ts-node app.ts"
 	},
 	"keywords": [],
 	"author": "",
@@ -16,7 +16,7 @@
 		"axios": "^1.7.4",
 		"bcryptjs": "^2.4.3",
 		"cloudinary": "^2.4.0",
-		"connect-mongodb-session": "^2.2.0",
+		"connect-mongodb-session": "^5.0.0",
 		"cors": "^2.8.5",
 		"csrf": "^3.1.0",
 		"dotenv": "^16.4.5",

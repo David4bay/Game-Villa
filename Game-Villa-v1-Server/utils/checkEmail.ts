@@ -1,18 +1,22 @@
+import type { Response } from 'express'
 
-export function checkEmail(email: unknown) {
+export function checkEmail(email: unknown, response: Response) {
 
-    let emailRegex = /^[a-zA-Z0-9. _%+-]+@[a-zA-Z0-9. -]+\\. [a-zA-Z]{2,}$/
+    let emailRegex = /[^@]+@[^@]+\.[^@]+/
 
     if (!email) {
-        throw new Error('No email given.')
+        response.status(400).json({ error: "No email provided."})
+        return
     }
 
     if (typeof email !== 'string') {
-        throw new Error('Email is not a string.')
+        response.status(400).json({ error: "Email format unknown."})
+        return
     }
 
-    if (emailRegex.test(email) === false) {
-        throw new Error('Invalid Email given.')
+    if (emailRegex.test(email as string) === false) {
+        response.status(400).json({ error: "Email not valid."})
+        return
     }
-    return true
+    return email
 }

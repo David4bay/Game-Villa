@@ -1,97 +1,85 @@
 import mongoose, { Document, Schema } from 'mongoose'
+import crypto from 'crypto'
 
-interface UserField {
-	profilePicture: string;
-    username: string;
-    password: string;
-	hash: string;
-	salt: string
-    email: string;
-    age: number;
-    joined: Date;
-    friends: mongoose.Types.ObjectId[] | [];
-    reviews: mongoose.Types.ObjectId[] | [];
-    earnings: mongoose.Types.ObjectId[] | [];
-	followers: mongoose.Types.ObjectId[] | [];
-	following: mongoose.Types.ObjectId[] | [];
-	comments: mongoose.Types.ObjectId[] | [];
-	helpful: mongoose.Types.ObjectId[] | [];
-	likes: mongoose.Types.ObjectId[] | [];
-}
-
-const userSchema = new Schema<UserField>({
+const userSchema = new Schema({
 	profilePicture: String,
 	username: {
 		type: String,
 		required: true,
 		minLength: 5
 	},
+	password: {
+		type: String,
+		required: true,
+		minLength: 6
+	},
+	salt: {
+		type: String,
+	},
 	email: {
 		type: String,
 		required: true
 	},
-	password: {
-		type: String,
-		required: true,
-		validate: {
-			validator: (num: string) => num.length >= 6,
-			message: () => `Password length must be longer than 5 characters.`
-		},
-		minLength: 6
-	},
+	age: {
+		type: Number,
+		required: true
+	},    
 	joined: {
 		type: Date,
 		default: () => Date.now(),
 		immutable: true
 	},
-	friends: [
-		{
-			type: mongoose.Schema.Types.ObjectId,
-			ref: 'user'
-		}
-	],
 	reviews: [
 		{
-			type: mongoose.Schema.Types.ObjectId,
+			type:  mongoose.Schema.Types.ObjectId,
 			ref: 'reviews'
 		}
 	],
 	earnings: [
 		{
-		type: mongoose.Schema.Types.ObjectId,
+		type:  mongoose.Schema.Types.ObjectId,
 		ref: 'earnings'
 		}
 	],
-	followers: [
-		{
-		type: mongoose.Schema.Types.ObjectId,
-		ref: 'user'
-		}
-	],
-	following: [
-		{
-		type: mongoose.Schema.Types.ObjectId,
-		ref: 'user'
-		}
-	],
+	followersCount: {
+		type: Number,
+		default: 0
+	},
+	followingCount: {
+		type: Number,
+		default: 0
+	},
 	comments: [
 		{
-		type: mongoose.Schema.Types.ObjectId,
+		type:  mongoose.Schema.Types.ObjectId,
 		ref: 'comment'
 		}
 	],
 	helpful: [
 		{
-			type: mongoose.Schema.Types.ObjectId,
+			type:  mongoose.Schema.Types.ObjectId,
 			ref: 'helpful'
 		}
 	],
 	likes: [
 		{
-			type: mongoose.Schema.Types.ObjectId,
+			type:  mongoose.Schema.Types.ObjectId,
 			ref: 'like'
 		}
 	]
 })
 
-export const User = mongoose.model<UserField>('User', userSchema)
+userSchema.pre('save', async function(done) {
+		if (this.isModified("password")) {
+
+	let salt = await crypto.randomBytes(Number(process.env.BYTES_LENGTH!)).toString("hex")
+	let hashedPassword = crypto.createHmac("md5", salt).update(this.password as string).digest("hex")
+
+	this.set("password", hashedPassword)
+	this.set("salt", salt)
+
+		}
+		done()
+})
+
+export const User = mongoose.model('User', userSchema)

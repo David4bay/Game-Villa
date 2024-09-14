@@ -1,8 +1,9 @@
-import type { Request, Response } from "express";
+// import type { Request, Response } from "express";
 import { Router } from "express";
-import { getCurrentPageAndPageSize } from "../utils/extractPageNumber";
-import { fetchAllGames } from '../utils/gamesService'
+// import { getCurrentPageAndPageSize } from "../utils/extractPageNumber";
+// import { fetchAllGames } from '../utils/gamesService'
 import signUp from '../controllers/signup'
+import deleteUsers from '../controllers/deleteUsers'
 
 const homeRouter = Router()
 
@@ -22,5 +23,9 @@ const homeRouter = Router()
 // }
 
 homeRouter.post('/signup', signUp)
+
+if (process.env.NODE_ENV='development'!) {
+    homeRouter.delete('/delete', deleteUsers)
+}
 
 export default homeRouter

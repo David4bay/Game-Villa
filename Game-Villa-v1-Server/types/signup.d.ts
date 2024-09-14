@@ -5,4 +5,4 @@ interface SignUpTypes {
     age: number;
 }
 
-export type SignUpInfo = SignUpTypes
+export type SignUpInfo = Pick<SignUpTypes, 'username' | 'password' | 'email' | 'age'>

@@ -1,12 +1,6 @@
-import mongoose, { Document, Schema } from 'mongoose'
+import mongoose, { Schema } from 'mongoose'
 
-interface HelpfulField extends Document {
-    reviewerId: mongoose.Types.ObjectId;
-    reviewId: mongoose.Types.ObjectId;
-    number: mongoose.Types.ObjectId[];
-}
-
-const helpfulSchema = new Schema<HelpfulField>({
+const helpfulSchema = new Schema({
     reviewerId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'user',
@@ -25,4 +19,4 @@ const helpfulSchema = new Schema<HelpfulField>({
     ]
 })
 
-export const Helpful = mongoose.model<HelpfulField>('Helpful', helpfulSchema)
+export const Helpful = mongoose.model('Helpful', helpfulSchema)

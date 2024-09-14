@@ -35,17 +35,17 @@ function Home() {
         </Container>
         <Container>
             <Box>
-            <Typography variant="h3">How helpful reviews shape our gaming community</Typography>
+            <Typography variant="h3">How helpful reviews shape our gaming community.</Typography>
             <Paper elevation={3}>
             Explore how user reviews influence the gaming landscape and why we reward our most helpful contributors.
                 <Typography>
             Discuss the impact of honest, thorough reviews on other gamers’ decisions, the benefits of participating in the community, and examples of how certain reviews have guided players toward or away from specific games.
                 </Typography>
-            <a href="#">Top 10 Tips for Writing a Killer Game Review</a>
+            <a href="#">Top 10 Tips for Writing a Killer Game Review.</a>
             </Paper>
             </Box>
             <Box>
-                <Typography variant="h3">The Future of Gaming Communities: Token Rewards and Beyond</Typography>
+                <Typography variant="h3">The Future of Gaming Communities: Token Rewards and Beyond.</Typography>
                 <Paper>
             Writing a great review is an art. Here’s how you can craft reviews that are both helpful and reward-worthy.
                     <Typography>

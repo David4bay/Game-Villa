@@ -1,6 +1,11 @@
 import mongoose, { Schema } from 'mongoose'
 
-const commentSchema = new Schema({
+const replySchema = new Schema({
+    parentId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Comment',
+      required: true,
+    },
     commenterId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'User',
@@ -15,6 +20,10 @@ const commentSchema = new Schema({
       type: Date,
       default: Date.now,
     },
-  });
-
-export const Comment = mongoose.model('Comment', commentSchema)
+    updated: {
+        type: Boolean,
+        default: false
+    }
+});
+  
+const Reply = mongoose.model('Reply', replySchema);

@@ -13,17 +13,17 @@ app.use(express.urlencoded({ extended: false }));
 
 const username = process.env.MONGO_USERNAME;
 const password = encodeURIComponent(process.env.MONGO_PASSWORD);
-console.log("password", password)
-mongoose
-	.connect(
-		`mongodb+srv://${username}:${password}@cluster0.7fmaegp.mongodb.net/gameVilla?retryWrites=true&w=majority&appName=Cluster0`,
-	)
-	.then(() => {
-		console.log("Mongo Atlas connected successfully");
-	})
-	.catch((e) => {
-		console.log(`Sorry, unable to connect to Mongo Atlas, ${e.message}`);
-	});
+
+// mongoose
+// 	.connect(
+// 		`mongodb+srv://${username}:${password}@cluster0.7fmaegp.mongodb.net/gameVilla?retryWrites=true&w=majority&appName=Cluster0`,
+// 	)
+// 	.then(() => {
+// 		console.log("Mongo Atlas connected successfully");
+// 	})
+// 	.catch((e) => {
+// 		console.log(`Sorry, unable to connect to Mongo Atlas, ${e.message}`);
+// 	});
 
 app.use('/api/v1', homeRouter)
 

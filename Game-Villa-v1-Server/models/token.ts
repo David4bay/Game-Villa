@@ -1,12 +1,6 @@
-import mongoose, { Document, Schema } from 'mongoose'
+import mongoose, { Schema } from 'mongoose'
 
-interface TokenField extends Document {
-    userId: mongoose.Types.ObjectId;
-    token: string;
-    createdAt: Date;
-}
-
-const tokenSchema = new Schema<TokenField>({
+const tokenSchema = new Schema({
     userId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'user',
@@ -25,4 +19,4 @@ const tokenSchema = new Schema<TokenField>({
     }
 })
 
-export const Token = mongoose.model<TokenField>('Token', tokenSchema)
+export const Token = mongoose.model('Token', tokenSchema)
