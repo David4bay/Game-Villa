@@ -4,7 +4,7 @@ import jwt from 'jsonwebtoken'
 function createToken(user, response: Response): string {
     let token: any
     let secret = process.env?.JWT_SECRET
-    
+
     try {
 
         if (!user) {
@@ -19,7 +19,7 @@ function createToken(user, response: Response): string {
     } catch(e) {
         if (e instanceof Error) {
 
-            response.status(400).json({ error: `Unable to create token ${e}` })
+            response.status(400).json({ error: `Unable to create token. ${e}` })
             return
         }
     }

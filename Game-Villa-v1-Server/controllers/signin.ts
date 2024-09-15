@@ -27,9 +27,9 @@ async function signIn(request: Request, response: Response) {
             return
         }
 
-        token = createToken(exists as any, response as Response)
-
-        return response.status(200).json({ user: {...exists}, token })
+        token = createToken({ user: exists.username } as any, response as Response)
+        
+        return response.status(200).json({ exists, token })
 
     } catch (e: unknown) {
 

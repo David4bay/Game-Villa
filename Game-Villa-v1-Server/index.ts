@@ -4,6 +4,7 @@ import express from "express";
 import helmet from "helmet";
 import mongoose from "mongoose";
 import homeRouter from "./handlers/home";
+import errorHandler from "./controllers/errorHandler"
 
 const app = express();
 app.use(helmet());
@@ -26,5 +27,7 @@ const password = encodeURIComponent(process.env.MONGO_PASSWORD);
 // 	});
 
 app.use('/api/v1', homeRouter)
+
+app.use(errorHandler)
 
 export default app;

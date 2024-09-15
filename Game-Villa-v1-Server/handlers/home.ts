@@ -4,6 +4,8 @@ import { Router } from "express";
 // import { fetchAllGames } from '../utils/gamesService'
 import signUp from '../controllers/signup'
 import deleteUsers from '../controllers/deleteUsers'
+import signIn from '../controllers/signin'
+import createReview from '../controllers/createReview'
 
 const homeRouter = Router()
 
@@ -23,6 +25,10 @@ const homeRouter = Router()
 // }
 
 homeRouter.post('/signup', signUp)
+
+homeRouter.post('/signin', signIn)
+
+homeRouter.post('/review/create', createReview)
 
 if (process.env.NODE_ENV='development'!) {
     homeRouter.delete('/delete', deleteUsers)

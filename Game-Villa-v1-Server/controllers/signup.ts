@@ -1,8 +1,7 @@
 import type { Request, Response } from 'express'
-import jwt from 'jsonwebtoken'
-import type { SignUpInfo } from '../types/signup'
 import { verifySignup } from '../utils/verifySignup'
 import { User } from '../models/user'
+import createToken from '../utils/createToken'
 
 async function signUp(request: Request, response: Response) {
     try {
@@ -31,7 +30,7 @@ async function signUp(request: Request, response: Response) {
             age
         }).save()
         const jwtSecret = process.env?.JWT_SECRET!
-        const token = jwt.sign({ user: username }, jwtSecret)
+        const token = createToken({ username: user.username }, response as Response)
         response.status(200).json({ message: 'received successfully', user, token })
         return
     } catch(e: unknown) {
