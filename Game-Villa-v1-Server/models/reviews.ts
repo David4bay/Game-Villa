@@ -16,8 +16,8 @@ const reviewSchema = new Schema({
     content: {
         type: String,
         validate: {
-            validator: (words: string) => words.length > 9 && /^\s+|^\d+/.test(words) !== true,
-            message: 'Invalid title length'
+            validator: (words: string) => words.length > 9 && /^\s+|^\d+/.test(words) === true,
+            message: 'Invalid content length'
         }
     },
     pictures: {
