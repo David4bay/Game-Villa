@@ -21,7 +21,7 @@ const reviewSchema = new Schema({
         }
     },
     pictures: {
-        main: String,
+        primary: String,
         secondary: String,
         tertiary: String
     }

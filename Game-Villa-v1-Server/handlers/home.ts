@@ -6,6 +6,7 @@ import signUp from '../controllers/signup'
 import deleteUsers from '../controllers/deleteUsers'
 import signIn from '../controllers/signin'
 import createReview from '../controllers/createReview'
+import deleteReview from '../controllers/deleteReview'
 import findUsers from '../controllers/findUsers'
 
 const homeRouter = Router()
@@ -31,10 +32,12 @@ homeRouter.post('/signin', signIn)
 
 homeRouter.post('/review/create', createReview)
 
-if (process.env.NODE_ENV='development'!) {
-    homeRouter.delete('/delete', deleteUsers)
+if (process.env.NODE_ENV === 'development'!) {
+    homeRouter.delete('/users/delete', deleteUsers)
 
-    homeRouter.get('/dev/users', findUsers)
+    homeRouter.get('/users', findUsers)
+
+    homeRouter.delete('/review/delete', deleteReview)
 }
 
 export default homeRouter
